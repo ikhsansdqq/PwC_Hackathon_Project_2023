@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 export default function Navbar() {
     return (
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -6,7 +7,7 @@ export default function Navbar() {
                 <a href="https://flowbite.com/" className="flex items-center">
                     <Image src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="Flowbite Logo"/>
                     <span
-                        className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                        className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Network Anomaly Detection</span>
                 </a>
                 <div className="flex md:order-2">
                     <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search"
