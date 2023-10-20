@@ -1,40 +1,39 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const SampleApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class SampleApp extends StatelessWidget {
+  const SampleApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black45),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      title: 'PwC Hackathon 2023',
+      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
+      home: const SampleAppPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+class SampleAppPage extends StatefulWidget {
+  const SampleAppPage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<SampleAppPage> createState() => _SampleAppPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _SampleAppPageState extends State<SampleAppPage> {
+  // Default placeholder text.
+  String textToShow = 'I Like Flutter';
+  String title = 'PwC Hackathon 2023';
 
-  void _incrementCounter() {
+  void _updateText() {
     setState(() {
-      _counter++;
+      // Update the text.
+      textToShow = 'Flutter is Awesome!';
     });
   }
 
@@ -42,29 +41,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text(title),
+        centerTitle: false,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Pushed:',
-            ),
-            Text(
-              'Counter: $_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
+      body: Center(child: Text(textToShow)),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        onPressed: _updateText,
+        tooltip: 'Update Text',
+        child: const Icon(Icons.update),
+      ),
     );
   }
 }
